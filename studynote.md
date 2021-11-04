@@ -45,7 +45,6 @@
    이 코드를 입력하지 않아도 브라우저가 텍스트를 출력하겠지만, 해당 코드는 브라우저에게 이 파일이 단순 텍스트 파일이 아니라 html파일이라는 것을 알려주는 것 2) html태그 사이에 작성해야 html코드가 됨
    <html>
 
-
 </html>
 
     3)head와 body
@@ -81,3 +80,96 @@
    1)input과 같이 사용해야함.
    <label for="profile">aa</label> // label의 for와 input의 id는 값이 같아야 한다.
    <input id="profile">
+
+---
+
+#3.0
+
+1. css를 html에 추가하기
+
+   1. inline css : <style></style>
+
+   - html의 head 영역에 추가하기.
+
+   2. external css : <link>
+
+<link rel="stylesheet" href="css/style.css">
+style.css 파일을 따로 만들어 href로 참조하게끔 한다. rel은 relationship의 약자로 html과 style.css의 관계를 설명해주는 속성이다. style.css가 html의 stylesheet라는 의미.
+
+#3.1
+
+1.  css의 원리
+
+        1) selector
+
+        css는 html의 '태그'를 가리켜 해당 태그의 속성(property)을 정해준다. 색, 모양 등등. 태그를 가리키는 것을 selector라고 한다.(어떤 태그인지 선택한다는 의미) 역시 모든 property를 외울 필요는 없다.
+
+        2) property
+
+            (2-1) css property는 띄어쓰기를 하지 않는다.
+
+            (2-2) property 끝에는 세미클론(;)을 꼭 입력해야 한다.
+
+        .welcome-header {
+            text-align: center;
+        }
+
+    이렇게 text-align과 :은 붙여쓰고, 끝에는 세미콜론 써줘야한다.
+
+popertyname: propertyvalue; 의 형식을 지켜서 쓰면 됨.
+
+#3.2
+
+1. css의 특성
+
+   1. Cascading Style Sheets
+
+      - cascade는 폭포라는 뜻. cascading은 위에서 아래로 흐르는 것을 의미한다. 브라우저는 css의 코드를 위에서부터 차례대로 읽는다.
+
+그래서 같은 태그에 대해 css의 코드가 충돌되면 마지막에 작성된 코드를 따른다.
+
+#3.3-3.4
+
+1.Box 종류
+
+1.  block
+
+    -block 옆에는 다른 block 오지 않는다. div옆에는 다른 div가 출력되지 않고 줄을 바꿔서 출력이 된다. <p>도 마찬가지. 대부분의 박스는 block이다.
+
+    -높이와 너비가 있음.
+
+2.  inline
+
+    - 다른 요소들이 옆에 올 수 있음. span, link, img
+
+    - 높이와 너비가 없음
+
+3.  block과 inline의 전환
+
+            display: inline;
+            display: block;
+
+    이라는 코드를 이용해 block을 inline으로 inline을 block의 속성을 가지게 해줄 수 있다.
+
+2)  Box 속성
+
+        1) margin : border 밖의 공간. body는 default 값으로 8px 크기의 margin을 갖는다.
+
+        margin-left: 5px;
+        margin-right: 6px;
+        margin-top: 7px;
+        margin-bottom: 8px;
+
+    이렇게 좌우상하 각각 값을 줄 수 있는데
+
+margin: 7px 6px 8px 5px;
+이렇게 한 줄로 줄일 수 있다. 차례대로 위 오른쪽 아래 왼쪽의 값을 각각 주는거다. 시계방향으로 차례대로 값이 부여된다고 생각하면 됨.
+
+margin: 5px 10px;
+이렇게 값이 두 개면 첫 번째는 상하값, 두 번째는 좌우값을 의미한다.
+
+    2) border :
+
+    3) padding :
+
+3. Collapsing margins
