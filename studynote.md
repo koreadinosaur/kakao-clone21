@@ -173,3 +173,329 @@ margin: 5px 10px;
     3) padding :
 
 3. Collapsing margins
+
+---
+
+#3.0
+
+1. css를 html에 추가하기
+
+   1. inline css : <style></style>
+
+   - html의 head 영역에 추가하기.
+
+   2. external css : <link>
+
+<link rel="stylesheet" href="css/style.css">
+style.css 파일을 따로 만들어 href로 참조하게끔 한다. rel은 relationship의 약자로 html과 style.css의 관계를 설명해주는 속성이다. style.css가 html의 stylesheet라는 의미.
+
+#3.1
+
+1.  css의 원리
+
+        1) selector
+
+        css는 html의 '태그'를 가리켜 해당 태그의 속성(property)을 정해준다. 색, 모양 등등. 태그를 가리키는 것을 selector라고 한다.(어떤 태그인지 선택한다는 의미) 역시 모든 property를 외울 필요는 없다.
+
+        2) property
+
+            (2-1) css property는 띄어쓰기를 하지 않는다.
+
+            (2-2) property 끝에는 세미클론(;)을 꼭 입력해야 한다.
+
+        .welcome-header {
+            text-align: center;
+        }
+
+    이렇게 text-align과 :은 붙여쓰고, 끝에는 세미콜론 써줘야한다.
+
+popertyname: propertyvalue; 의 형식을 지켜서 쓰면 됨.
+
+#3.2
+
+1. css의 특성
+
+   1. Cascading Style Sheets
+
+      - cascade는 폭포라는 뜻. cascading은 위에서 아래로 흐르는 것을 의미한다. 브라우저는 css의 코드를 위에서부터 차례대로 읽는다.
+
+그래서 같은 태그에 대해 css의 코드가 충돌되면 마지막에 작성된 코드를 따른다.
+
+#3.3-3.6
+
+1.Box 종류
+
+1.  block
+
+    -block 옆에는 다른 block 오지 않는다. div옆에는 다른 div가 출력되지 않고 줄을 바꿔서 출력이 된다. <p>도 마찬가지. 대부분의 박스는 block이다.
+
+    -높이와 너비가 있음.
+
+2.  inline
+
+    - 다른 요소들이 옆에 올 수 있음. span, link, img
+
+    - 높이와 너비가 없음
+
+3.  block과 inline의 전환
+
+            display: inline;
+            display: block;
+
+    이라는 코드를 이용해 block을 inline으로 inline을 block의 속성을 가지게 해줄 수 있다.
+
+2)  Box 속성
+
+        1) margin : border 밖의 공간. body는 default 값으로 8px 크기의 margin을 갖는다.
+
+        margin-left: 5px;
+        margin-right: 6px;
+        margin-top: 7px;
+        margin-bottom: 8px;
+
+    이렇게 좌우상하 각각 값을 줄 수 있는데
+
+margin: 7px 6px 8px 5px;
+이렇게 한 줄로 줄일 수 있다. 차례대로 위 오른쪽 아래 왼쪽의 값을 각각 주는거다. 시계방향으로 차례대로 값이 부여된다고 생각하면 됨.
+
+margin: 5px 10px;
+이렇게 값이 두 개면 첫 번째는 상하값, 두 번째는 좌우값을 의미한다.
+
+    2) border :
+
+    3) padding :
+
+3. Collapsing margins
+
+box와 body의 border가 같다면, 마진의 위아래의 값이 달라도 더 큰 값으로 출력되는 현상.
+
+    1) div
+
+    div{
+        height: 150px;
+        width: 150px;
+        background-color: tomato;
+    }
+
+div값을 이렇게 주게되면 정사각형의 토마토색깔의 박스가 나온다.
+
+    2) body
+
+    body{
+        background-color: violet;
+    }
+
+이러면 150\*150px의 정사각형범위를 제외한 div의 영역이 violet 색이됨.
+
+그런데 여기서 body의 top마진값을 20px, div의 top 마진값을 80px을 부여하면 div와 body top margin값이 동일하게 80px이 됨.
+
+    3) 결론
+
+        (1) body와 box의 border가 같을 때,
+
+        (2) top과 bottom에서만
+
+        (3) body와 box의 margin값이 다르더라도 둘 중 더 큰 값으로 함께 적용됨.
+
+#3.7-3.8
+
+1. padding
+
+border 안쪽의 공간
+
+body든에 padding을 부여하면 collapsing margins이 해결된다. div에는 해도 안됨.
+
+2. border
+
+말그대로 경계를 의미함 border style mdn으로 검색하면 여러 스타일 나옴.
+
+점선, 혹은 실선의 스타일 등이 있는데 디자인이 예쁘지 않아서 거의 하나만 사용한다.
+
+        *{
+            border: 2px solid black;
+        }
+
+\*는 전체를 의미함. 해당 코드는 경계선을 2px만큼의 두께의 검은색 실선으로 출력하라는 의미. border: 다음에는 line-width || line-style || color 순서로 입력한다.
+
+#3.9 - 3.11
+
+1. inline block
+
+   1. inline에서 block 속성 부여하기
+
+inline box는 높이와 너비를 가질 수 없는데
+
+        div{
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            color: red;
+        }
+
+해당 display속성을 주면 inline임에도 불구하고 높이와 너비를 가지게되고 빨간색이 출력됨.
+
+게다가 한 줄에 나란히 출력된다.
+
+단점 : 디폴트값으로 box사이에 빈공간이 있음. 빈공간에 규칙이 없음
+
+반응형 디자인을 지원하지 않는다.
+
+2. flexbox
+
+   1. 자식 태그에는 아무것도 적으면 안된다.
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+이렇게 body안에 div를 세 개 작성 후
+
+        body {
+            display: flex;
+            margin: 20px;
+            padding: 20px;
+        }
+
+flex속성을 주면 세 개체가 나란히 빈 공간 없이 정렬됨
+
+여기서 justify-content: center;이나 flex-end 등으로 중앙 정렬, 우측정렬 등 가능. space-evenly / between 속성을 주면 각 개체의 빈 공간을 동일한 비율로 만들어서 떨어뜨려준다. 창이 작아지면 거기에 맞춰서 빈공간이 조절됨
+
+    2) flex의 축
+
+         (2-1)main axis(주축, 수평축) - justify-content
+
+         (2-2)cross axis(교차축, 수직축) - align-items
+
+        body {
+            height: 100vh; /* 100vh는 viewport height, 즉 screen 높이의 100%를 의미한다 */
+            display: flex;
+            justify-content: space-between; /*가로축 정렬*/
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+이러면 세로축을 기준으로 화면의 정중앙에 정렬됨. height를 정해준 상태에서는 align-items의 속성으로 strech를 부여할 수 없다. 높이가 정해져있기 때문.
+
+3.  수평축, 수직축 바꾸기
+
+    1. flex-direction
+
+column, row의 옵션이 있음. display: flex;의 기본 옵션은 row(수평)이다. (수평정렬) 이것을
+
+flex-direction: column;으로하면 수직으로 정렬된다. 이때 주축은 수직축이되고, 교차축은 수평축이 된다.
+
+이 때 align-items: flex-end;로 정렬하면 box가 우측 끝으로 정렬된다. 수평축이 되었기 때문.
+
+4. flex box의 property
+
+   1. flex container
+
+body가 div들의 flex container인데 div 또한 flex container가 될 수 있다.
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+div의 css에 이렇게 추가하면 텍스트가 박스 정중앙으로 정렬됨.
+
+    2) flex-wrap: nowrap;
+
+flex는 width를 무시한다. 같은 줄에 여러 elements를 두기 위해 초기 width값이 300px이더라도 자동으로 조정한다.
+
+    3) flex-wrap: wrap;
+
+wrap은 부여된 width값에 따라 width값을 초과하는 elments들은 줄을 바꿔 정렬시킨다.
+
+    4) flex-direction: reverse;
+
+    거꾸로 정렬시키기.
+
+---
+
+#3.12
+
+1. position
+
+   요소들을 미세하게 움직일 때 유용하다.
+
+   1. position: fixed;
+
+      커서를 내려도 고정된 자리에서 출력됨 ex) netflex의 메뉴바
+
+   2. position: static;
+
+      박스를 처음 위치한 곳에 두는 것
+
+   3. position: relative;
+
+      처음 위치한 곳을 기준으로 수정할 수 있음
+
+left: -10px; /_처음 위치에서 왼쪽으로 10px만큼 이동_/
+상하좌우 다 마찬가지.
+
+    4) absolute
+
+        부모태그 중 relative 속성을 가진 부모를 기준으로 정렬되는데, 아무도 그 속성이 없으면 body를 기준으로 움직인다. 그래서 bottom: 0px; 입력하면 body 맨 아래에 정렬됨.
+
+# 3.13
+
+1.  psedo selector
+
+    n번째 태그를 select하는 방법
+
+            div:first-child{ /*첫 번째 div*/
+                background-color: green;
+            }
+            div:nth-child(2){  /*div중 2번째 div에 red출력, even입력하면 짝수번째 div 선택함.*/
+                background-color: red; /*2n+2, 5n 이런식으로도 가능 */
+            }
+            div:last-child{ /* 마지막 div*/
+                background-color: silver;
+            }
+
+    여러개의 div가 있을 때.
+
+2.  combinator
+
+    <div>
+        <span>hello</span>
+        <p>
+            태정태세문단세 예성연중인명선 광인효현숙경영정 순헌철고순
+            <span>이순신장군 만세</span>
+        </p>
+    </div>
+    1) 이 상태에서 span과 p안에있는 span의 색상을 다르게 정해주기
+
+        span{
+            color: springgreen;
+        }
+        p span{  /*부모태그 먼저 입력 후 자식태그 입력 */
+            color: tomato;
+        }
+
+    2. 첫 번째 span에만 밑줄효과 주기
+
+       (2-1)
+
+       span{
+       color: springgreen;
+       text-decoration: underline; /_ 모든 span태그에 밑줄 _/
+       }
+       p span{
+       color: tomato;
+       text-decoration: none; /_ 여기에는 밑줄 x _/
+       }
+       (2-2)
+
+       div > span { /_ div > span 은 span이 div 바로 아래의 자식태그라는 것을 의미 _/
+       text-decoration: underline;
+       }
+
+    3. p 다음에 오는 span에 밑줄효과주기
+
+       p + span { /_ p의 자식인 span이 아니라 p 다음에 오는 span을 의미 _/
+       text-decoration: underline;
+       }
