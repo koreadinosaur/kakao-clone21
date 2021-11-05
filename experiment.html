@@ -6,29 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root{
+            --main-color: #FAE100;
+        }
         body {
             margin: 20px;
             height: 1000vh;            
         }
-        span{
-            color: springgreen;
-            text-decoration: underline;
+        input[placeholder~="name"] {
+            background-color: tomato;
         }
-        p span{
-            color: tomato;
+        input:focus{
+            background-color: tomato;            
         }
-        p + span {
-            text-decoration: underline;
+        a:visited{
+            color:gray;
+        }
+        form:hover input:focus{
+            background-color: greenyellow;
+        }
+        form{
+            border: 2px solid blue;
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+        }
+        input::placeholder{
+            color: blue;
+        }
+        span::selection{
+            background-color: blue;
+        }
+        p{
+            color: var(--main-color);
+            font-size: 40px;
         }
         </style>
 </head>
 <body>
+    <form>
+        <input type="text" placeholder="write yours">
+        <input type="text">
+        <input type="text">  
+    </form>
     <div>
-        <span>hello</span>
-        <p>
-            태정태세문단세 예성연중인명선 광인효현숙경영정 순헌철고순
-            <span>이순신장군 만세</span>
-        </p>
-    </div>
+        <p>가나다라마바사아자차카타파하</p>
+    </div>     
 </body>
 </html>

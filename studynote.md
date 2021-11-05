@@ -460,42 +460,187 @@ left: -10px; /_처음 위치에서 왼쪽으로 10px만큼 이동_/
 
 2.  combinator
 
-    <div>
-        <span>hello</span>
-        <p>
-            태정태세문단세 예성연중인명선 광인효현숙경영정 순헌철고순
-            <span>이순신장군 만세</span>
-        </p>
-    </div>
-    1) 이 상태에서 span과 p안에있는 span의 색상을 다르게 정해주기
+        <div>
+            <span>hello</span>
+            <p>
+                태정태세문단세 예성연중인명선 광인효현숙경영정 순헌철고순
+                <span>이순신장군 만세</span>
+            </p>
+        </div>
+        1) 이 상태에서 span과 p안에있는 span의 색상을 다르게 정해주기
 
-        span{
-            color: springgreen;
+            span{
+                color: springgreen;
+            }
+            p span{  /*부모태그 먼저 입력 후 자식태그 입력 */
+                color: tomato;
+            }
+
+        2. 첫 번째 span에만 밑줄효과 주기
+
+           (2-1)
+
+           span{
+           color: springgreen;
+           text-decoration: underline; /_ 모든 span태그에 밑줄 _/
+           }
+           p span{
+           color: tomato;
+           text-decoration: none; /_ 여기에는 밑줄 x _/
+           }
+           (2-2)
+
+           div > span { /_ div > span 은 span이 div 바로 아래의 자식태그라는 것을 의미 _/
+           text-decoration: underline;
+           }
+
+        3. p 다음에 오는 span에 밑줄효과주기
+
+           p + span { /_ p의 자식인 span이 아니라 p 다음에 오는 span을 의미 _/
+           text-decoration: underline;
+           }
+
+    이때, span은 p의 '바로' 다음에 와야한다. 중간에 다른 태그 있으면 안됨
+
+        4) 중간에 다른 태그 있을 때 사용하는 combinator
+
+p ~ span {
+text-decoration: underline;
+}
+이때 p와 span은 형제관계여야한다. 부모 자식의 관계가 아니어야 한다는 뜻.
+
+    5) 특정 속성(attribute)가진 input select하기
+
+        -attribute selectors mdn이라고 검색하면 됨
+
+        input:required {
+            border-color: tomato;
         }
-        p span{  /*부모태그 먼저 입력 후 자식태그 입력 */
-            color: tomato;
+
+required 속성 가진 input만 선택할 수 있음. optional은 required을 가지지 않은 input 선택.
+
+        input[type="password"] {
+            background-color: tomato;
         }
 
-    2. 첫 번째 span에만 밑줄효과 주기
+type, placeholder는 중괄호를 이용한다
 
-       (2-1)
+        input[placeholder~="name"] {
+            background-color: tomato;
+        }
 
-       span{
-       color: springgreen;
-       text-decoration: underline; /_ 모든 span태그에 밑줄 _/
-       }
-       p span{
-       color: tomato;
-       text-decoration: none; /_ 여기에는 밑줄 x _/
-       }
-       (2-2)
+~=의 의미는 placeholder 중 name을 포함하는 input을 선택하는 것.
 
-       div > span { /_ div > span 은 span이 div 바로 아래의 자식태그라는 것을 의미 _/
-       text-decoration: underline;
-       }
+#3.17
 
-    3. p 다음에 오는 span에 밑줄효과주기
+1. states
 
-       p + span { /_ p의 자식인 span이 아니라 p 다음에 오는 span을 의미 _/
-       text-decoration: underline;
-       }
+   1. active - 클릭했을 때 색깔이 변하고 클릭 버튼을 떼면 원상복귀
+
+      button:active{
+      background-color: tomato;
+      }
+
+   2. hover - 마우스 커서가 버튼에 올라갔을 때 작동
+
+      button:hover{
+      background-color: tomato;
+      }
+
+   3. focus - focus되고 있을 때(마우스로 클릭해서 커서가 반짝이고 있는 상태)
+
+   4. visited - 링크에만 적용됨
+
+      body에 a태그 추가하고
+
+<a href="http://www.naver.com">go to naver</a>
+css 추가하기
+
+        a:visited{
+            color:gray;
+        }
+
+이러면 링크를 클릭하고나면 방문했던 사이트라는 의미에서 색깔이 회색으로 바뀜
+
+    5) focus-within - form 안에 자식 태그인 input이 있고, 그 input이 focus 됐을 때의 form의 상태 설정.
+
+        form:focus-within{
+            border-color: greenyellow;
+        }
+        form{
+            border: 2px solid blue;
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+        }
+    6) 부모의 state에 따라 자식태그의 style 변경하기
+
+        form:hover input{
+            background-color: greenyellow;
+        }
+    이러면 form에 hover되었을 때(마우스 커서 가져다 댔을 때) input의 색깔이 바뀜
+
+        form:hover input:focus{
+            background-color: greenyellow;
+        }
+
+이러면 조건이 두 개 달림. form에 hover가 되어있고 input에 focus 되었을 때 색이 바뀜
+
+#3.18
+
+    1. pseudo elements
+
+    1) ::placeholder
+
+
+        input::placeholder{
+            color: blue;
+        }
+
+placeholder 꾸밀 수 있음.
+
+    2)::selection - 텍스트를 블록지정 했을 때 색깔 바뀜
+
+
+        span::selection{
+            background-color: blue;
+        }
+    3)::first-letter - 첫번째 글자에만 style 부여
+
+
+        p::first-letter{
+            color: red;
+            font-size: 40px;
+        }
+    그런데 이거는 span에는 적용 안되더라. 왜지? 암튼 first-line도 있음.
+
+#3.19 colors
+
+    1. hexadecimal color(16진수 컬러)
+
+color:#FAE100; 2. rgb방식
+
+color:rgb(250, 225, 0, 0.8);
+red, green, blue 값을 부여하는 것, 0.8은 알파값임. 투명도를 의미하는데 0에 가까울수록 연해짐.
+
+color picker 이용하면 색상 추출 가능
+
+    3. custom property(variable)
+
+        1) root에 변수 선언해주기 - --main-color를 document의 root에 저장하는 것.
+
+
+        :root{
+            --main-color: #FAE100;
+        }
+        2) 변수사용법
+
+
+        p{
+            color: var(--main-color);
+            font-size: 40px;
+        }
+
+css에서 변수를 주는 것이라 javascript하고 문법이 달라서 조금 어색하긴 함.
+
+---
