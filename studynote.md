@@ -642,3 +642,62 @@ color picker 이용하면 색상 추출 가능
         }
 
 css에서 변수를 주는 것이라 javascript하고 문법이 달라서 조금 어색하긴 함.
+
+---
+
+#assignment4
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <form>
+      <label id="firstname">Firstname 
+        <input type="text" required>
+      </label><br>
+      <label id="secondname">Lastname 
+        <input type="text" required>
+      </label><br>
+      <label id="email">Email 
+        <input type="email" required>
+      </label><br>
+      <label id="username">Username 
+        <input type="text" required>
+      </label><br>
+      <label id="password">Password 
+        <input type="password" minlength="10" required>
+      </label><br>
+      <label id="brithday">Birth date 
+        <input type="date" required>
+      </label><br>
+      <label id="happiness">How happy are you? 
+        <input type="range" list="tickmarks" required>
+        <datalist id="tickmarks">
+          <option value="0"></option>
+          <option value="10"></option>
+          <option value="20"></option>
+          <option value="30"></option>
+          <option value="40"></option>
+          <option value="50"></option>
+          <option value="60"></option>
+          <option value="70"></option>
+          <option value="80"></option>
+          <option value="90"></option>
+          <option value="100"></option>
+        </datalist>    
+      </label><br>
+      <label id="color">What is your fav.color 
+        <input type="color" required>
+      </label><br>
+      <input type="submit" value="create account">
+  </form>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>
