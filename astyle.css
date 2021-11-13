@@ -1,0 +1,29 @@
+body {
+  height: 100vh; /* 아래 두줄까지 같이 있어야 화면 중앙에 정렬됨 */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; /*가로축 정렬*/
+  margin: 20px;
+  padding: 20px;
+  background-color: red;
+}
+.box {
+  flex-direction: column; /* 가로로 정렬되어있는 것을 세로로 정렬시켜줌 */
+  display: flex; /* 자식요소들이 빈공간 없이 정렬하게 해줌 */
+  width: 400px;
+  height: 400px;
+  background-color: #f5deb3;
+  border: 2px solid black;
+  justify-content: space-evenly; /*가로축 정렬,  y축 정렬이라는 의미*/
+  align-items: center;
+}
+.box div {
+  background-color: #008080;
+  width: 70px;
+  height: 70px;
+  border: 3px solid white;
+}
+div:nth-child(2) {
+  width: 300px;
+  border-style: dashed;
+}

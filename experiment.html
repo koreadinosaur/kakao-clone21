@@ -4,53 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="astyle.css">
     <title>Document</title>
-    <style>
-        :root{
-            --main-color: #FAE100;
-        }
-        body {
-            margin: 20px;
-            height: 1000vh;            
-        }
-        input[placeholder~="name"] {
-            background-color: tomato;
-        }
-        input:focus{
-            background-color: tomato;            
-        }
-        a:visited{
-            color:gray;
-        }
-        form:hover input:focus{
-            background-color: greenyellow;
-        }
-        form{
-            border: 2px solid blue;
-            display: flex;
-            padding: 20px;
-            flex-direction: column;
-        }
-        input::placeholder{
-            color: blue;
-        }
-        span::selection{
-            background-color: blue;
-        }
-        p{
-            color: var(--main-color);
-            font-size: 40px;
-        }
-        </style>
+
 </head>
 <body>
-    <form>
-        <input type="text" placeholder="write yours">
-        <input type="text">
-        <input type="text">  
-    </form>
-    <div>
-        <p>가나다라마바사아자차카타파하</p>
-    </div>     
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>  
 </body>
 </html>
