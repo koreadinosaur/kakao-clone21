@@ -701,3 +701,50 @@ css에서 변수를 주는 것이라 javascript하고 문법이 달라서 조금
 
   </body>
 </html>
+-----------------------------------------------------------------
+<!-- #assignmnet6 css -->
+
+body {
+  height: 100vh; /* 100vh는 viewport height, 즉 screen 높이의 100%를 의미한다 */
+  display: flex;
+  justify-content: space-evenly; /*가로축 정렬*/
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: red;
+}
+.box {
+  flex-direction: column;
+  display: flex;
+  border: 2px solid;
+  width: 400px;
+  height: 400px;
+  background-color: #f5deb3;
+  /* background-color: #008080; */
+  border: 2px solid black;
+  justify-content: space-evenly; /*가로축 정렬*/
+  align-items: center;
+}
+.box div {
+  background-color: #008080;
+  width: 70px;
+  height: 70px;
+  border: 3px solid white;
+}
+div:nth-child(1) {
+}
+div:nth-child(2) {
+  width: 300px;
+  border-style: dashed;
+}
+div:nth-child(3) {
+}
+
+<!-- html -->
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>  
+</body>
