@@ -705,37 +705,37 @@ css에서 변수를 주는 것이라 javascript하고 문법이 달라서 조금
 <!-- #assignmnet6 css -->
 
 body {
-  height: 100vh; /* 100vh는 viewport height, 즉 screen 높이의 100%를 의미한다 */
-  display: flex;
-  justify-content: space-evenly; /*가로축 정렬*/
-  align-items: center;
-  margin: 20px;
-  padding: 20px;
-  background-color: red;
+height: 100vh; /_ 100vh는 viewport height, 즉 screen 높이의 100%를 의미한다 _/
+display: flex;
+justify-content: space-evenly; /_가로축 정렬_/
+align-items: center;
+margin: 20px;
+padding: 20px;
+background-color: red;
 }
 .box {
-  flex-direction: column;
-  display: flex;
-  border: 2px solid;
-  width: 400px;
-  height: 400px;
-  background-color: #f5deb3;
-  /* background-color: #008080; */
-  border: 2px solid black;
-  justify-content: space-evenly; /*가로축 정렬*/
-  align-items: center;
+flex-direction: column;
+display: flex;
+border: 2px solid;
+width: 400px;
+height: 400px;
+background-color: #f5deb3;
+/_ background-color: #008080; _/
+border: 2px solid black;
+justify-content: space-evenly; /_가로축 정렬_/
+align-items: center;
 }
 .box div {
-  background-color: #008080;
-  width: 70px;
-  height: 70px;
-  border: 3px solid white;
+background-color: #008080;
+width: 70px;
+height: 70px;
+border: 3px solid white;
 }
 div:nth-child(1) {
 }
 div:nth-child(2) {
-  width: 300px;
-  border-style: dashed;
+width: 300px;
+border-style: dashed;
 }
 div:nth-child(3) {
 }
@@ -748,3 +748,93 @@ div:nth-child(3) {
         <div></div>
     </div>  
 </body>
+------------------------------------------------------------
+<!-- #assignment7 -->
+<!-- #html -->
+<body>
+    <h1>The Best Colors</h1>
+    <div id="firstFather">
+        <div class="firstFather_first">
+            <div>
+                <h2>Tomato</h2>
+                <p> #FF6347</p>
+            </div>
+        </div>
+        <div class="firstFather_second">
+            <div>
+                <h2>Teal</h2>
+                <p>#008080</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="secondFather">
+        <div class="secondFather_first">
+            <div>
+                <h2>Burlywood</h2>
+                <p> #DEB887</p>
+            </div>
+        </div>
+        <div class="secondFather_second">
+            <div>
+                <h2>Thistle</h2>
+                <p>#D7BFD7</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- #css -->
+
+body {
+background-color: #f5f5f5;
+height: 100vh;
+}
+h1 {
+text-align: center;
+}
+#firstFather,
+#secondFather {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 30px;
+}
+
+.firstFather_first,
+.secondFather_first {
+border: 4px solid white;
+position: relative;
+left: 330px;
+background-color: tomato;
+width: 230px;
+height: 450px;
+}
+
+.firstFather_second,
+.secondFather_second {
+border: 4px solid white;
+position: relative;
+left: -330px;
+background-color: #008080;
+width: 230px;
+height: 450px;
+}
+
+.secondFather_first {
+background-color: #deb887;
+}
+.secondFather_second {
+background-color: #d7bfd7;
+}
+
+.firstFather_first div:first-child,
+.firstFather_second div:first-child,
+.secondFather_first div:first-child,
+.secondFather_second div:first-child {
+background-color: white;
+position: relative;
+top: 20px;
+height: 140px;
+}
