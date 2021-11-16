@@ -838,3 +838,150 @@ position: relative;
 top: 20px;
 height: 140px;
 }
+
+---
+
+<!-- #4.0-4.2 transition / transform -->
+
+a {
+color: wheat;
+background-color: tomato;
+text-decoration: none;
+padding: 3px 5px;
+border-radius: 5px;
+font-size: 55px;
+transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1); /_ easeOutCubic _/
+}
+
+a:hover {
+color: tomato;
+background-color: wheat;
+}
+
+img {
+width: 200px;
+height: 200px;
+border: 5px solid black;
+border-radius: 50%;
+transition: transform 3s ease-in-out;
+}
+img:hover {
+transform: rotateZ(90deg);
+}
+
+<!-- #4.3-4.4 keyframe -->
+
+img {
+width: 200px;
+height: 200px;
+border: 5px solid black;
+border-radius: 50%;
+animation: coinFlip 5s ease-in-out infinite;
+}
+
+@keyframes coinFlip {
+0% {
+transform: rotateX(0);
+}
+50% {
+transform: rotateX(360deg) translate(100px);
+opacity: 0;
+}
+100% {
+transform: rotateX(0);
+}
+}
+
+---
+
+<!-- #assignment8 css-->
+
+body {
+display: flex;
+align-items: center;
+height: 100vh;
+justify-content: center;
+}
+
+.bar div {
+border: 8px solid black;
+margin: 5px;
+height: 50px;
+}
+.bar {
+position: absolute;
+display: flex;
+bottom: 430px;
+}
+.bar div:nth-child(1) {
+animation: slide 1s ease-in-out infinite;
+}
+.bar div:nth-child(2) {
+animation: slide 1s ease-in-out infinite;
+animation-delay: 0.1s;
+}
+.bar div:nth-child(3) {
+animation: slide 1s ease-in-out infinite;
+animation-delay: 0.2s;
+}
+.bar div:nth-child(4) {
+animation: slide 1s ease-in-out infinite;
+animation-delay: 0.3s;
+}
+.bar div:nth-child(5) {
+animation: slide 1s ease-in-out infinite;
+animation-delay: 0.4s;
+}
+
+@keyframes slide {
+0% {
+transform: scaleY(1);
+}
+25% {
+transform: scaleY(1);
+}
+50% {
+transform: scaleY(2);
+}
+75% {
+transform: scaleY(1);
+}
+100% {
+transform: scaleY(1);
+}
+}
+
+.circle {
+animation: coinFlip 2s ease-in-out infinite;
+display: flex;
+}
+
+.circle div {
+border: 10px solid black;
+margin: 10px;
+border-radius: 50%;
+}
+
+@keyframes coinFlip {
+from {
+transform: rotate(0);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+<!-- html -->
+
+    <div class="circle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="bar">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
