@@ -1,74 +1,90 @@
 body {
-  display: flex;
-  align-items: center;
+  width: 50%;
   height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#header-bar {
+  width: 40%;
+}
+#header-bar div:first-child {
+  float: left;
+}
+#header-bar div:last-child {
+  display: flex;
   justify-content: center;
 }
-
-.bar div {
-  border: 8px solid black;
-  margin: 5px;
-  height: 50px;
+#nameOfSong img {
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  border-radius: 10px;
 }
-.bar {
-  position: absolute;
-  display: flex;
-  bottom: 430px;
-}
-.bar div:nth-child(1) {
-  animation: slide 1s ease-in-out infinite;
-}
-.bar div:nth-child(2) {
-  animation: slide 1s ease-in-out infinite;
-  animation-delay: 0.1s;
-}
-.bar div:nth-child(3) {
-  animation: slide 1s ease-in-out infinite;
-  animation-delay: 0.2s;
-}
-.bar div:nth-child(4) {
-  animation: slide 1s ease-in-out infinite;
-  animation-delay: 0.3s;
-}
-.bar div:nth-child(5) {
-  animation: slide 1s ease-in-out infinite;
-  animation-delay: 0.4s;
-}
-
-@keyframes slide {
-  0% {
-    transform: scaleY(1);
-  }
-  25% {
-    transform: scaleY(1);
-  }
-  50% {
-    transform: scaleY(2);
-  }
-  75% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
-
-.circle {
-  animation: coinFlip 2s ease-in-out infinite;
+#nameOfSong {
   display: flex;
 }
+#nameOfSong div {
+  padding-left: 50px;
+}
 
-.circle div {
-  border: 10px solid black;
-  margin: 10px;
+#playButton {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+#playButton button:nth-child(1) {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 150px;
+  height: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 5px black;
+}
+
+#playButton button:nth-child(2),
+#playButton button:nth-child(3) {
+  border: 2px solid black;
   border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 5px black;
 }
 
-@keyframes coinFlip {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.playList1,
+.playList2,
+.playList3,
+.playList4 {
+  padding-top: 50px;
+  display: flex;
+}
+
+.albumCover {
+  background-color: tomato;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+}
+.playList2 .albumCover {
+  background-color: pink;
+}
+.playList3 .albumCover {
+  background-color: blueviolet;
+}
+.playList4 .albumCover {
+  background-color: cornsilk;
+}
+.songAndSinger {
+  padding-left: 10px;
+}
+.song {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.singer {
+  font-size: 17px;
 }
