@@ -985,3 +985,144 @@ transform: rotate(360deg);
         <div></div>
         <div></div>
     </div>
+-------------------------------------------------------------------
+<!-- #assignment9 html -->
+<body>
+    <div id="header-bar">
+        <div><h2>✖</h2></div>
+        <div><h2>Playlist</h2></div>
+    </div>
+    <div id="nameOfSong">
+        <img src="strawberrymoon.jpg">
+        <div>
+            <h1>Strawberry Moon</h1>
+            <h2>by IU</h2>
+        </div>
+    </div>
+    <div id="playButton">
+        <button>▷ Play</button>
+        <button>🤍</button>
+        <button>➕</button>
+    </div>
+    <div id="playList">
+        <div class="playList1">
+            <div class="albumCover"></div>
+            <div class="songAndSinger">
+                <div class="song">Whale</div>
+                <div class="singer">김세정</div>
+            </div>
+        </div>
+        <div class="playList2">
+            <div class="albumCover"></div>
+            <div class="songAndSinger">
+                <div class="song">잊어야 한다는 마음으로</div>
+                <div class="singer">김광석</div>
+            </div>
+        </div>
+        <div class="playList3">
+            <div class="albumCover"></div>
+            <div class="songAndSinger">
+                <div class="song">밤편지</div>
+                <div class="singer">IU</div>
+            </div>
+        </div>
+        <div class="playList4">
+            <div class="albumCover"></div>
+            <div class="songAndSinger">
+                <div class="song">밤편지</div>
+                <div class="singer">IU</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- css -->
+body {
+  width: 50%;
+  height: 100vh;
+}
+#header-bar {
+  width: 40%;
+}
+#header-bar div:first-child {
+  float: left;
+}
+#header-bar div:last-child {
+  display: flex;
+  justify-content: center;
+}
+#nameOfSong img {
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+#nameOfSong {
+  display: flex;
+}
+#nameOfSong div {
+  padding-left: 50px;
+}
+
+#playButton {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+#playButton button:nth-child(1) {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 150px;
+  height: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 5px black;
+}
+
+#playButton button:nth-child(2),
+#playButton button:nth-child(3) {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 5px black;
+}
+
+.playList1,
+.playList2,
+.playList3,
+.playList4 {
+  padding-top: 50px;
+  display: flex;
+}
+
+.albumCover {
+  background-color: tomato;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+}
+.playList2 .albumCover {
+  background-color: pink;
+}
+.playList3 .albumCover {
+  background-color: blueviolet;
+}
+.playList4 .albumCover {
+  background-color: cornsilk;
+}
+.songAndSinger {
+  padding-left: 10px;
+}
+.song {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.singer {
+  font-size: 17px;
+}
